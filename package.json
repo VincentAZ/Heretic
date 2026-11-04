@@ -1,0 +1,39 @@
+{
+  "name": "heretic-studio",
+  "version": "2.1.0",
+  "description": "Local Electron Studio & Multi-Featured UI atop p-e-w/heretic (Training-Free Language Model Modification)",
+  "license": "AGPL-3.0-or-later",
+  "author": "Vincent Serpico (upstream Heretic core by Philipp Emanuel Weidmann)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VincentAZ/Heretic.git"
+  },
+  "main": "electron/main.cjs",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "electron:dev": "concurrently -k \"vite --port 5173\" \"wait-on tcp:5173 && electron . --no-sandbox\"",
+    "start": "vite build && electron . --no-sandbox",
+    "test": "node tests/verify.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "smol-toml": "^1.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.0",
+    "electron": "^33.2.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3",
+    "wait-on": "^8.0.1"
+  }
+}

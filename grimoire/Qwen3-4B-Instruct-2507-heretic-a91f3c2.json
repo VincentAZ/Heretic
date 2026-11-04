@@ -1,0 +1,120 @@
+{
+  "version": "4",
+  "timestamp": "2026-10-28T19:42:10",
+  "system": {
+    "python": {
+      "version": "3.12.7",
+      "implementation": "CPython",
+      "compiler": "GCC 13.2.0",
+      "environment": "Virtualenv/Venv"
+    },
+    "os": {
+      "platform": "Linux-6.8.0-87-generic-x86_64-with-glibc2.39",
+      "machine": "x86_64"
+    },
+    "cpu": {
+      "brand": "AMD Ryzen Threadripper PRO 7975WX 32-Cores",
+      "vendor": "AuthenticAMD",
+      "family": 25,
+      "model": 24,
+      "stepping": 1
+    },
+    "accelerators": {
+      "type": "CUDA",
+      "api_name": "CUDA Version",
+      "api_version": "12.8",
+      "driver_version": "570.86.15",
+      "devices": [
+        {
+          "name": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+          "vram_gb": 95.59
+        }
+      ]
+    }
+  },
+  "environment": {
+    "heretic": {
+      "version": "2.1.0",
+      "is_standard_pypi": true,
+      "metadata": {
+        "type": "pypi"
+      }
+    },
+    "pytorch_version": "2.6.0+cu128",
+    "requirements": {
+      "accelerate": "1.15.0",
+      "bitsandbytes": "0.50.1",
+      "datasets": "5.0.0",
+      "huggingface-hub": "1.33.0",
+      "optuna": "5.0.0",
+      "peft": "0.21.2",
+      "transformers": "5.18.0"
+    }
+  },
+  "settings": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "model_commit": "a91f3c284e71b208f91c229a087123bc9012ef01",
+    "quantization": "none",
+    "batch_size": 32,
+    "max_response_length": 100,
+    "modified_model_type": "decensored",
+    "n_trials": 30,
+    "n_startup_trials": 10,
+    "seed": 4281992,
+    "scorers": [
+      {
+        "plugin": "heretic.scorers.keyword_rate.KeywordRate",
+        "optimization": "minimize"
+      },
+      {
+        "plugin": "heretic.scorers.kl_divergence.KLDivergence",
+        "optimization": "minimize"
+      }
+    ],
+    "modifiers": [
+      {
+        "plugin": "heretic.modifiers.ara.ARA"
+      }
+    ]
+  },
+  "parameters": {
+    "start_layer_index": 9,
+    "end_layer_index": 28,
+    "preserve_good_behavior_weight": 0.49,
+    "steer_bad_behavior_weight": 0.114,
+    "overcorrect_relative_weight": 0.81,
+    "neighbor_count": 7
+  },
+  "scores": [
+    {
+      "name": "Refusals",
+      "score": {
+        "value": 0.01,
+        "rich_display": "[bold]1[/]/100",
+        "md_display": "1/100"
+      },
+      "baseline": {
+        "value": 0.96,
+        "rich_display": "[bold]96[/]/100",
+        "md_display": "96/100"
+      }
+    },
+    {
+      "name": "KL divergence",
+      "score": {
+        "value": 0.1128,
+        "rich_display": "[bold]0.1128[/]",
+        "md_display": "0.1128"
+      },
+      "baseline": {
+        "value": 0,
+        "rich_display": "[bold]0[/] [italic](by definition)[/]",
+        "md_display": "0 *(by definition)*"
+      }
+    }
+  ],
+  "hashes": {
+    "model-00001-of-00002.safetensors": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "model-00002-of-00002.safetensors": "8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4"
+  }
+}

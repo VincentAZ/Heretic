@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.venv/
+.heretic-studio.log
+.heretic-studio.pid
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
+*.swp
+exported-model/

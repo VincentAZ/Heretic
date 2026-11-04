@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="55%" stop-color="#13192b"/>
+      <stop offset="100%" stop-color="#1d1128"/>
+    </linearGradient>
+    <linearGradient id="cyberGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#ff2a85"/>
+    </linearGradient>
+    <linearGradient id="flameGrad" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="65%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ff2a85"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle App Tile -->
+  <rect x="16" y="16" width="224" height="224" rx="54" fill="url(#bg)"/>
+  <rect x="16" y="16" width="224" height="224" rx="54" fill="none" stroke="url(#cyberGlow)" stroke-opacity="0.65" stroke-width="5"/>
+
+  <!-- Subtle Pareto Grid Arcs -->
+  <path d="M52 188 C 92 184, 148 140, 198 68" fill="none" stroke="#00f0ff" stroke-opacity="0.22" stroke-width="4" stroke-dasharray="6 6" stroke-linecap="round"/>
+
+  <!-- Stylized Heretic Flame + H Monogram & Ablation Vector -->
+  <path d="M128 44 C156 76, 186 104, 180 148 C175 182, 152 206, 128 210 C104 206, 81 182, 76 148 C70 104, 100 76, 128 44 Z" fill="url(#flameGrad)" fill-opacity="0.18"/>
+
+  <!-- Inner Crisp H + Orthogonal Vector Arrows -->
+  <g fill="none" stroke="url(#cyberGlow)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left Pillar -->
+    <path d="M88 76 V180"/>
+    <!-- Right Pillar -->
+    <path d="M168 76 V180"/>
+    <!-- Crossbar with Steering Deflection -->
+    <path d="M88 130 L128 114 L168 130"/>
+    <!-- Central Heretic Torch / Vector Spire -->
+    <path d="M128 60 V114"/>
+    <path d="M114 76 L128 58 L142 76"/>
+  </g>
+
+  <!-- Pareto Optimal Nodes -->
+  <circle cx="88" cy="130" r="7" fill="#00f0ff"/>
+  <circle cx="128" cy="114" r="8" fill="#ffffff" stroke="#00f0ff" stroke-width="4"/>
+  <circle cx="168" cy="130" r="7" fill="#ff2a85"/>
+</svg>

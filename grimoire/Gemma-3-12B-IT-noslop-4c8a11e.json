@@ -1,0 +1,113 @@
+{
+  "version": "4",
+  "timestamp": "2026-10-30T14:15:00",
+  "system": {
+    "python": {
+      "version": "3.11.9",
+      "implementation": "CPython",
+      "compiler": "GCC 12.3.0",
+      "environment": "Conda"
+    },
+    "os": {
+      "platform": "Linux-6.5.0-44-generic-x86_64-with-glibc2.35",
+      "machine": "x86_64"
+    },
+    "cpu": {
+      "brand": "AMD EPYC 7763 64-Core Processor"
+    },
+    "accelerators": {
+      "type": "CUDA",
+      "api_name": "CUDA Version",
+      "api_version": "12.4",
+      "driver_version": "550.54.15",
+      "devices": [
+        {
+          "name": "NVIDIA A100-SXM4-80GB",
+          "vram_gb": 80
+        }
+      ]
+    }
+  },
+  "environment": {
+    "heretic": {
+      "version": "2.1.0",
+      "is_standard_pypi": true,
+      "metadata": {
+        "type": "pypi"
+      }
+    },
+    "pytorch_version": "2.6.0+cu124",
+    "requirements": {
+      "accelerate": "1.15.0",
+      "bitsandbytes": "0.50.1",
+      "optuna": "5.0.0",
+      "peft": "0.21.2",
+      "transformers": "5.18.0"
+    }
+  },
+  "settings": {
+    "model": "google/gemma-3-12b-it",
+    "model_commit": "4c8a11e90123ab8192019f817263541298abcef0",
+    "quantization": "none",
+    "batch_size": 16,
+    "max_response_length": 300,
+    "modified_model_type": "slop-reduced",
+    "n_trials": 80,
+    "n_startup_trials": 25,
+    "seed": 7718291,
+    "scorers": [
+      {
+        "plugin": "heretic.scorers.keyword_rate.KeywordRate",
+        "optimization": "minimize"
+      },
+      {
+        "plugin": "heretic.scorers.kl_divergence.KLDivergence",
+        "optimization": "minimize"
+      }
+    ],
+    "modifiers": [
+      {
+        "plugin": "heretic.modifiers.ara.ARA"
+      }
+    ]
+  },
+  "parameters": {
+    "start_layer_index": 12,
+    "end_layer_index": 36,
+    "preserve_good_behavior_weight": 0.63,
+    "steer_bad_behavior_weight": 0.072,
+    "overcorrect_relative_weight": 0.54,
+    "neighbor_count": 9
+  },
+  "scores": [
+    {
+      "name": "Responses with slop",
+      "score": {
+        "value": 0.08,
+        "rich_display": "[bold]8[/]/100",
+        "md_display": "8/100"
+      },
+      "baseline": {
+        "value": 0.87,
+        "rich_display": "[bold]87[/]/100",
+        "md_display": "87/100"
+      }
+    },
+    {
+      "name": "KL divergence",
+      "score": {
+        "value": 0.0841,
+        "rich_display": "[bold]0.0841[/]",
+        "md_display": "0.0841"
+      },
+      "baseline": {
+        "value": 0,
+        "rich_display": "[bold]0[/] [italic](by definition)[/]",
+        "md_display": "0 *(by definition)*"
+      }
+    }
+  ],
+  "hashes": {
+    "model-00001-of-00005.safetensors": "4a7d1ed414474e4033ac29ccb8653d9b0000123456789abcdef0123456789abc"
+  }
+}
